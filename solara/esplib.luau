@@ -82,8 +82,8 @@ local MiscOptions = {
     };
 
 local Options = setmetatable({}, {__index = MiscOptions, __newindex = function(self, key, value) Esp.RefreshElements(key, value) end})
+    local Fonts = {}
 do
-    local Fonts = {}; do
     local function RegisterFont(Name, Weight, Style, Asset)
         if not isfile(Asset.Id) then
             writefile(Asset.Id, Asset.Font)
@@ -125,7 +125,6 @@ do
         }) 
 
         Fonts[name] = Font.new(RegisteredFont, Enum.FontWeight.Regular, Enum.FontStyle.Normal)
-    end
     end
 end
 
@@ -1328,5 +1327,3 @@ function Esp.Unload()
     end
 end
 return Esp, MiscOptions, Options
-
-  
